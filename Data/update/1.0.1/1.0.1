@@ -1,0 +1,28 @@
+# https://raw.githubusercontent.com/red2center/red2center.github.io/refs/heads/main/Data/version
+
+#Version 1.0.1
+
+print("Hello World")
+import requests
+
+def gettext(url):
+    try:
+        # URL'den içeriği al
+        response = requests.get(url)
+        response.raise_for_status()  # Hata durumunda bir istisna oluşturur
+        # Sayfanın içeriğini döndür
+        return response.text.strip()  # Yanıt metnini döndürür
+    except requests.exceptions.RequestException as e:
+        return f"Hata: {e}"
+
+if __name__ == "__main__":
+    url = 'https://raw.githubusercontent.com/red2center/red2center.github.io/refs/heads/main/Data/version'
+    text = gettext(url)
+    vers = ""
+    print(text)
+    with open("version","r")as f:
+        vers = f.read()
+    if vers == text:
+        print("Güncel Yazılım")
+    else:
+        print("güncelleme mevcut")
