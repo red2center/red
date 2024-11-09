@@ -3,20 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yönlendirme Kontrolü</title>
+    <title>Main Sayfası</title>
 </head>
 <body>
-    <h1 id="message"></h1>
+    <h1 id="message">Yönlendirilmekte...</h1>
 
     <script>
-        // Referans adresini kontrol et
-        var referrer = document.referrer;
+        // URL'yi al
+        var currentUrl = window.location.href;
 
-        // Eğer referans hellored.pages.dev ise, VALVE yazdır
-        if (referrer.includes("hellored.pages.dev")) {
-            document.getElementById("message").innerText = "VALVE";
-        } else {
-            document.getElementById("message").innerText = "Kullanıcı yok";
+        // Eğer URL '/main/' ile başlıyorsa
+        if (currentUrl.includes('/main/')) {
+            var path = currentUrl.split('/main/')[1];  // '/main/' sonrasını al
+
+            // Bu parametreyi docs/deneme.html sayfasına yönlendireceğiz
+            var targetUrl = "https://hellored.pages.dev/docs/deneme.html?ref=" + path;
+
+            // 2 saniye sonra yönlendirme yapılacak
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 2000);
         }
     </script>
 </body>
