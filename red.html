@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deneme Sayfası</title>
+    <title>Red HTML</title>
+    <script>
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const aParam = urlParams.get('a');
+            const expectedValue = '27928611';
+
+            if (aParam === expectedValue) {
+                window.location.href = "message.html?a=" + aParam;  // Yönlendirme yapılacak
+            } else {
+                alert("Bu sayfaya erişim izniniz yok.");
+            }
+        };
+    </script>
 </head>
 <body>
-    <h1 id="message">Bu içerik yalnızca yönlendirilmiş kullanıcılar için görünür.</h1>
-
-    <script>
-        // URL'den 'a' parametresini al
-        var urlParams = new URLSearchParams(window.location.search);
-        var paramA = urlParams.get('a');
-
-        // Eğer 'a' parametresi varsa, içerik gösterilir
-        if (paramA=="27928611") {
-            document.getElementById("message").innerText = "Yönlendirilmiş kullanıcıya özel içerik: " + paramA;
-        } else {
-            // Eğer 'a' parametresi yoksa, içerik gizlenir
-            document.getElementById("message").innerText = "Erişim reddedildi. Yönlendirme yapılmadı.";
-        }
-    </script>
+    <h1>Red HTML</h1>
+    <p>Yönlendirme işlemi gerçekleşiyor...</p>
 </body>
 </html>
