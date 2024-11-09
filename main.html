@@ -13,14 +13,14 @@
         var currentUrl = window.location.href;
 
         // Eğer URL '/main/' ile başlıyorsa ve 'a' parametresi varsa
-        if (currentUrl.includes('/main/')) {
+        if (currentUrl.includes('/main')) {
             // URL'deki 'a' parametresini al
             var urlParams = new URLSearchParams(window.location.search);
             var paramA = urlParams.get('a');  // 'a' parametresini al
 
             if (paramA) {
                 // Yönlendirme yapılacak URL
-                var targetUrl = "https://hellored.pages.dev/docs/deneme.html?a=" + paramA;
+                var targetUrl = "https://hellored.pages.dev/deneme.html?a=" + paramA;
 
                 // 2 saniye sonra yönlendirme yapılacak
                 setTimeout(function() {
