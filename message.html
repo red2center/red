@@ -11,17 +11,28 @@
             const aParam = urlParams.get('a');
             const expectedValue = '27928611';  // Beklenen parametre
 
-            // Eğer doğru parametre ile gelinmediyse, içeriği gizle veya sayfayı yönlendir
-            if (aParam !== expectedValue) {
-                // Burada içerik gizlenebilir veya başka bir işlem yapılabilir
-                document.body.innerHTML = '<h1>Giriş izniniz yok.</h1>';
-                // Alternatif olarak yönlendirme yapılabilir:
-                // window.location.href = "https://hellored.pages.dev/";
+            // Eğer parametre doğruysa formu gönder
+            if (aParam === expectedValue) {
+                // Formu gizli olarak oluştur
+                let form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '/message';  // Yönlendirilmesi gereken sayfa (PHP, Python, vs)
+
+                // Parametreyi gizli input olarak ekle
+                let input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'a';
+                input.value = aParam;
+
+                // Formu ekle ve gönder
+                form.appendChild(input);
+                document.body.appendChild(form);
+                form.submit();
             } else {
-                // Parametre doğruysa içeriği göster
-                document.getElementById("messageContent").style.display = "block";
+                // Parametre doğru değilse, içerik gösterilmesin veya kullanıcıyı yönlendir
+                document.body.innerHTML = '<h1>Giriş izniniz yok.</h1>';
             }
-        };
+        }
     </script>
 </head>
 <body>
