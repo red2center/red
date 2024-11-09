@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deneme Sayfası</title>
+</head>
+<body>
+    <h1 id="message">Bu içerik yalnızca yönlendirilmiş kullanıcılar için görünür.</h1>
+
+    <script>
+        // URL'den 'ref' parametresini al
+        var urlParams = new URLSearchParams(window.location.search);
+        var ref = urlParams.get('ref');
+
+        // Eğer 'ref' parametresi varsa, içerik gösterilir
+        if (ref) {
+            document.getElementById("message").innerText = "Yönlendirilmiş kullanıcıya özel içerik: " + ref;
+        } else {
+            // Eğer 'ref' parametresi yoksa, içerik gizlenir
+            document.getElementById("message").innerText = "Erişim reddedildi. Yönlendirme yapılmadı.";
+        }
+    </script>
+</body>
+</html>
