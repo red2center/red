@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönlendirme Kontrolü</title>
+</head>
+<body>
+    <h1 id="message"></h1>
+
+    <script>
+        // Referans adresini kontrol et
+        var referrer = document.referrer;
+
+        // Eğer referans hellored.pages.dev ise, VALVE yazdır
+        if (referrer.includes("hellored.pages.dev")) {
+            document.getElementById("message").innerText = "VALVE";
+        } else {
+            document.getElementById("message").innerText = "Kullanıcı yok";
+        }
+    </script>
+</body>
+</html>
