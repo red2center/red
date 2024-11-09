@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message HTML</title>
+    <title>Message Page</title>
     <script>
-        // Obfuscated JS code
-        (function(){
-            var _0x9123=["\x67\x65\x74","\x61","\x73\x65\x61\x72\x63\x68","\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65"];
-            var urlParams = new URLSearchParams(window.location.search);
-            var aParam = urlParams.get(_0x9123[1]);
-            var expectedValue = "27928611";
+        window.onload = function() {
+            // URL parametrelerini al
+            const urlParams = new URLSearchParams(window.location.search);
+            const aParam = urlParams.get('a');
+            const expectedValue = '27928611';  // Beklenen parametre
 
-            if(aParam === expectedValue) {
-                document.getElementById("messageContent").style.display = "block"; // İçeriği göster
+            // Eğer doğru parametre ile gelinmediyse, içeriği gizle veya sayfayı yönlendir
+            if (aParam !== expectedValue) {
+                // Burada içerik gizlenebilir veya başka bir işlem yapılabilir
+                document.body.innerHTML = '<h1>Giriş izniniz yok.</h1>';
+                // Alternatif olarak yönlendirme yapılabilir:
+                // window.location.href = "https://hellored.pages.dev/";
             } else {
-                document.getElementById("messageContent").style.display = "none"; // İçeriği gizle
+                // Parametre doğruysa içeriği göster
+                document.getElementById("messageContent").style.display = "block";
             }
-        })();
+        };
     </script>
 </head>
 <body>
