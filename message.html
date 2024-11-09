@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message HTML</title>
+    <script>
+        // Obfuscated JS code
+        (function(){
+            var _0x9123=["\x67\x65\x74","\x61","\x73\x65\x61\x72\x63\x68","\x66\x72\x6F\x6D\x43\x68\x61\x72\x43\x6F\x64\x65"];
+            var urlParams = new URLSearchParams(window.location.search);
+            var aParam = urlParams.get(_0x9123[1]);
+            var expectedValue = "27928611";
+
+            if(aParam === expectedValue) {
+                document.getElementById("messageContent").style.display = "block"; // İçeriği göster
+            } else {
+                document.getElementById("messageContent").style.display = "none"; // İçeriği gizle
+            }
+        })();
+    </script>
+</head>
+<body>
+    <h1>Message Page</h1>
+    <div id="messageContent" style="display:none;">
+        <p>Bu içerik yalnızca doğru parametre ile gelen kullanıcılara gösterilecektir.</p>
+    </div>
+</body>
+</html>
