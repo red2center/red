@@ -12,17 +12,23 @@
         // URL'yi al
         var currentUrl = window.location.href;
 
-        // Eğer URL '/main/' ile başlıyorsa
+        // Eğer URL '/main/' ile başlıyorsa ve 'a' parametresi varsa
         if (currentUrl.includes('/main/')) {
-            var path = currentUrl.split('/main/')[1];  // '/main/' sonrasını al
+            // URL'deki 'a' parametresini al
+            var urlParams = new URLSearchParams(window.location.search);
+            var paramA = urlParams.get('a');  // 'a' parametresini al
 
-            // Bu parametreyi docs/deneme.html sayfasına yönlendireceğiz
-            var targetUrl = "https://hellored.pages.dev/docs/deneme.html?ref=" + path;
+            if (paramA) {
+                // Yönlendirme yapılacak URL
+                var targetUrl = "https://hellored.pages.dev/docs/deneme.html?a=" + paramA;
 
-            // 2 saniye sonra yönlendirme yapılacak
-            setTimeout(function() {
-                window.location.href = targetUrl;
-            }, 2000);
+                // 2 saniye sonra yönlendirme yapılacak
+                setTimeout(function() {
+                    window.location.href = targetUrl;
+                }, 2000);
+            } else {
+                document.getElementById("message").innerText = "Geçersiz parametre!";
+            }
         }
     </script>
 </body>
