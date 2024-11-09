@@ -11,28 +11,18 @@
             const aParam = urlParams.get('a');
             const expectedValue = '27928611';  // Beklenen parametre
 
-            // Eğer parametre doğruysa formu gönder
+            // Eğer parametre doğruysa, içeriği göster
             if (aParam === expectedValue) {
-                // Formu gizli olarak oluştur
-                let form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '/message';  // Yönlendirilmesi gereken sayfa (PHP, Python, vs)
-
-                // Parametreyi gizli input olarak ekle
-                let input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'a';
-                input.value = aParam;
-
-                // Formu ekle ve gönder
-                form.appendChild(input);
-                document.body.appendChild(form);
-                form.submit();
+                // Parametre doğruysa içeriği göster
+                document.getElementById("messageContent").style.display = "block";
+                
+                // URL parametresini URL'den kaldır
+                history.replaceState({}, document.title, window.location.pathname);
             } else {
-                // Parametre doğru değilse, içerik gösterilmesin veya kullanıcıyı yönlendir
+                // Parametre doğru değilse, içerik gösterilmesin veya yönlendirme yapılabilir
                 document.body.innerHTML = '<h1>Giriş izniniz yok.</h1>';
             }
-        }
+        };
     </script>
 </head>
 <body>
