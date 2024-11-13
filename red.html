@@ -3,42 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Message Page</title>
-    <script>
-        window.onload = function() {
-            // URL parametrelerini al
-            const urlParams = new URLSearchParams(window.location.search);
-            const aParam = urlParams.get('a');
-            const expectedValue = '27928611';  // Beklenen parametre
-
-            // Eğer parametre doğruysa formu gönder
-            if (aParam === expectedValue) {
-                // Formu gizli olarak oluştur
-                let form = document.createElement('form');
-                form.method = 'POST';
-                form.action = '/message';  // Yönlendirilmesi gereken sayfa (PHP, Python, vs)
-
-                // Parametreyi gizli input olarak ekle
-                let input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'a';
-                input.value = aParam;
-
-                // Formu ekle ve gönder
-                form.appendChild(input);
-                document.body.appendChild(form);
-                form.submit();
-            } else {
-                // Parametre doğru değilse, içerik gösterilmesin veya kullanıcıyı yönlendir
-                document.body.innerHTML = '<h1>Giriş izniniz yok.</h1>';
-            }
-        }
-    </script>
+    <title>Sayfa İçeriği Yükleme</title>
 </head>
 <body>
-    <h1>Message Page</h1>
-    <div id="messageContent" style="display:none;">
-        <p>Bu içerik yalnızca doğru parametre ile gelen kullanıcılara gösterilecektir.</p>
+test
+    <div id="content">
+        <!-- Buraya diğer HTML sayfasının içeriği yüklenecek -->
     </div>
+
+    <script>
+        // Fetch API ile Cloudflare Pages'deki başka bir sayfayı al
+        fetch('index.html')  // Buraya Cloudflare Pages'deki sayfa yolunu girin
+            .then(response => response.text())  // Sayfa içeriğini metin olarak al
+            .then(data => {
+                // Sayfa içeriğini 'content' ID'li öğeye ekle
+                document.getElementById('content').innerHTML = data;
+            })
+            .catch(error => console.error('Dosya yüklenirken hata oluştu:', error));
+    </script>
 </body>
 </html>
