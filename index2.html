@@ -1,141 +1,68 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>VALVE</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-.w3-half img:hover{opacity:1}
-
-</style>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BSL6XG1H4W"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-BSL6XG1H4W');
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.10/lib/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        #content {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        #fileList {
+            margin-top: 20px;
+        }
+        .fileItem {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #fafafa;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .fileItem:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-gray-100 p-8">
+    <h1 class="text-3xl font-bold text-center text-gray-800">Markdown Viewer</h1>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64"><b>HelloRED</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="javascript:void(0)" onclick="changeContent('Home')">Home</a> <br>
-    
-    <a href="javascript:void(0)" onclick="changeContent('Discord Invite')">Discord Invite</a> <br>
-    <a href="https://instagram.com/hellored0" onclick="changeContent('Instagram')">Instagram</a> <br>
-   <!-- <a href="javascript:void(0)" onclick="changeContent('Discord Unlocker')">Discord Unlocker</a> <br> -->
-    <a href="javascript:void(0)" onclick="changeContent('Files')">Files</a> 
-    <!--<a href="#designers" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white"></a> 
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
-  --></div>
-</nav>
+    <div id="fileList" class="max-w-lg mx-auto">
+        <!-- List of files will be dynamically added here -->
+        <div class="fileItem" onclick="loadFile()">README.md</div>
+        <!-- Add other files if needed -->
+    </div>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>VALVE</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-
-<center><div id="content">
-
-
-
-  </div>
-</center>
-<!-- W3.CSS Container 
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
--->
-<script>
-// Script to open and close sidebar
-function w3_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
- 
-function w3_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
-</script>
-<script>
-  // İçerik değişimini kontrol eden fonksiyon
-  function changeContent(konu) {
-      var content = document.getElementById('content');
-      
-      if (konu === 'Home') {
-          content.innerHTML = `<h1>Home</h1><iframe width="84%" height="1000px" style="float:right;" src="https://lookerstudio.google.com/embed/reporting/440edcc7-cfaf-40d3-a74a-3ac7fa66b5a3/page/bVQQE" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>`;
-      } else if (konu === 'Discord Unlocker') {
-          content.innerHTML = `<h1>Discord Unlocker</h1><p><iframe width="800" height="600" src="https://www.youtube.com/embed/AB0Ll8EMxRk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br><h1>Download Links</h1><a href="https://github.com/red2center/DiscordUnlocker/releases/download/DiscordUnlocker/install.exe">DiscordUnlocker Direct Download</a><br><a href="https://www.virustotal.com/gui/file/5c6524844010f4c615154011d58163db4d0ae05e77638f5f68efffea93c4f1c3">VirusTotal</a>
-</p>`;
-      } else if (konu === 'Discord Invite') {
-          content.innerHTML = `<h1>Discord Invite Links</h1><p><a href="https://discord.gg/sJXAxCbZj9"><h3>Discord Invite For HelloRed</h3></a></p><iframe src="https://discord.com/widget?id=1304016267434528778&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>`;
-      } else if (konu === 'Kick Channel') {
-          content.innerHTML = `<a href="https://kick.com/hellored"><h1>Kick Channel</h1></a><p><iframe width="85%" height="835px" style="float:right;" src="https://kick.com/hellored" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
-      } else if (konu === 'Files') {
-          content.innerHTML = `<h1>Files</h1><br>
-<div style="background-color:#f44336;color:white;width:20%;padding:20px;">
-                <h3>HelloRedService</h3><br>
-                <p>This service is solving discord server connection problems.</p>
-                <a href="https://github.com/red2center/HelloRedService/releases/download/HelloRedServiceSetup/HelloRedServiceSetup.exe">Download </a><br><br>
-                <a href="https://github.com/red2center/HelloRedService/releases/tag/HelloRedServiceSetup">Github Repo</a></div><br>
-
-
-          <div style="background-color:#f44336;color:white;width:20%;padding:20px;"><h3>Crackme1 1-4</h3><br>
-            <a href="https://github.com/red2center/Filerepo/raw/refs/heads/main/Crackme/Crackme.rar">Download </a>
-            <p>Rar Pasword : hellored20</p></div><br>
-            
-            <div style="background-color:#f44336;color:white;width:20%;padding:20px;">
-                <h3>League Of Legends Auto Accept Match</h3><br>
-                <a href="https://github.com/red2center/AutoAccept/releases/download/V1.0/AutoAccept.zip">Download</a><br><br>
-                <a href="https://github.com/red2center/AutoAccept">Github Repo</a></div>
-                
-                
-                
-                `;
-      }
-  }
-  window.onload = function() {
-            changeContent('Home');
-        };
-</script>
-
+    <div id="content" class="max-w-3xl mx-auto mt-8">
+        <div id="fileContent"></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Function to load the markdown file
+        function loadFile(fileUrl) {
+            fetch("https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/other/helloredservice.md")
+                .then(response => response.text())
+                .then(markdown => {
+                    // Convert Markdown to HTML
+                    const htmlContent = marked(markdown);
+                    document.getElementById('fileContent').innerHTML = htmlContent;
+                })
+                .catch(error => {
+                    console.error('Error loading file:', error);
+                    document.getElementById('fileContent').innerHTML = '<p class="text-red-500">Error loading file.</p>';
+                });
+        }
+    </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
