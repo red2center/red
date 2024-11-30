@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Viewer</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.10/lib/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -40,18 +40,21 @@
 
     <div id="fileList" class="max-w-lg mx-auto">
         <!-- List of files will be dynamically added here -->
-        <div class="fileItem" onclick="loadFile()">README.md</div>
+        <div class="fileItem" onclick="loadFile('https://raw.githubusercontent.com/red2center/appcenter/main/data/mdfiles/mds/helloredappmanager.md')">README.md</div>
         <!-- Add other files if needed -->
     </div>
 
     <div id="content" class="max-w-3xl mx-auto mt-8">
         <div id="fileContent"></div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
     <script>
+        // Check if marked is loaded correctly
+        console.log(marked);
+
         // Function to load the markdown file
         function loadFile(fileUrl) {
-            fetch("https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/other/helloredservice.md")
+            fetch(fileUrl)
                 .then(response => response.text())
                 .then(markdown => {
                     // Convert Markdown to HTML
