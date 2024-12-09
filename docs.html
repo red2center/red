@@ -3,151 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelloRed Docs</title>
-    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- GitHub Markdown CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/4.0.0/github-markdown.min.css" />
-    <!-- Highlight.js for Syntax Highlighting -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
-  
+    <title>Markdown Viewer</title>
+    <!--<script src="https://cdn.tailwindcss.com"></script>  Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/marked@4.0.12/marked.min.js"></script> <!-- Corrected Marked.js version -->
     <style>
+        /* Basic GitHub markdown style */
         body {
             font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            height: 100vh;
-            background-color: #f7fafc;
+            background-color: #f6f8fa;
+            color: #24292f;
         }
 
-        /* Sidebar */
-        #sidebar {
-            width: 250px;
-            background-color: #dc2626;
-            color: white;
+        .md-block {
+            background-color: #fff;
             padding: 20px;
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            overflow-y: auto;
-            box-shadow: 2px 0 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            line-height: 1.6;
         }
 
-        #sidebar h1 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            color: #24292f;
         }
 
-        #sidebar ul {
-            list-style: none;
-            padding: 0;
+        code {
+            font-family: 'Courier New', monospace;
+            background-color: #f5f2f0;
+            padding: 0 5px;
+            border-radius: 3px;
         }
 
-        #sidebar li {
-            margin: 10px 0;
+        pre {
+            background-color: #f5f2f0;
+            border-radius: 5px;
+            padding: 10px;
+            overflow-x: auto;
         }
 
-        #sidebar li a {
-            color: #edf2f7;
+        pre code {
+            background-color: transparent;
+            color: #333;
+        }
+
+        blockquote {
+            border-left: 4px solid #dfe2e5;
+            padding-left: 16px;
+            color: #6a737d;
+            font-style: italic;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        ul li, ol li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #0366d6;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 5px 0;
-            display: block;
         }
 
-        #sidebar li a:hover {
-            background-color: #8f1818;
-            border-radius: 4px;
+        a:hover {
+            text-decoration: underline;
         }
 
-        /* Content area */
-        #contentArea {
-            margin-left: 250px;
-            padding: 20px;
-            width: calc(100% - 250px);
-            background-color: white;
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        /* Markdown styles */
-        .markdown-body {
+        .prose {
             max-width: 100%;
-            margin: 0 auto;
-            padding: 0px 200px 0px 50px;
-            
         }
-        .markdown-body ul {
-        list-style:square !important;
-        }
-        .markdown-body ol {
-        list-style:square !important;
-        }
-        
-
-        /* Scrollbars styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background-color: #3182ce;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: #4a5568;
-        }
-
     </style>
 </head>
-<body>
+<body class="bg-gray-100 text-gray-900">
 
-    <div id="sidebar">
-        <h1>HelloRed Documentation</h1>
-        <ul>
-            <li><a href="#" onclick="loadContent('https://raw.githubusercontent.com/red2center/appcenter/main/data/mdfiles/mds/helloredappmanager.md')">HelloRed App Manager</a></li>
-            <li><a href="#" onclick="loadContent('https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/data/mdfiles/mds/helloredservice.md')">HelloRed Service</a></li>
-            <li><a href="#" onclick="loadContent('https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/data/mdfiles/mds/LeagueAutoAccept.md')">League Auto Accept</a></li>
-            <li><a href="#" onclick="loadContent('https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/data/mdfiles/mds/helloHWID.md')">Hello HWID</a></li>
-            <!-- Add more links here -->
-        </ul>
-    </div>
+    <!-- Container -->
+    <div class="max-w-4xl mx-auto px-4 py-8" style="margin: 0px 20% 0px 20%;">
 
-    <div id="contentArea">
-        <div class="markdown-body" id="markdownContent">
-            
-                <md-block src="https://raw.githubusercontent.com/red2center/appcenter/main/data/mdfiles/mds/helloredappmanager.md">
-                    <github-md >
-                </github-md>
-                </md-block>
-
-            
-          
+        <div class="text-center mb-8">
+            <h1 class="text-3xl font-semibold text-gray-900">HelloRed Docs</h1>
+            <a href="https://github.com/red2center/appcenter/wiki"><p class="mt-2 text-lg text-gray-700">Github Wiki</p></a>
         </div>
+
+        <!-- Markdown Content -->
+        <div id="markdown-content" class="md-block prose lg:prose-xl bg-white p-6 rounded-lg shadow-lg">
+            Loading...
+        </div>
+
     </div>
 
+    <!-- Script to load Markdown file and render it -->
     <script>
-        function loadContent(url) {
-            const markdownContent = document.getElementById('markdownContent');
-            markdownContent.innerHTML = '';  // Clear existing content
-            const mdBlock = document.createElement('md-block');
-            mdBlock.setAttribute('src', url);
-            markdownContent.appendChild(mdBlock);
+        async function fetchMarkdown() {
+            try {
+                // AllOrigins proxy to bypass CORS
+                const proxyUrl = 'https://api.allorigins.win/get?url=';
+                const targetUrl = 'https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/data/mdfiles/main.md'; // GitHub MD file URL
+                const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+                const data = await response.json();
+                
+                // Convert markdown to HTML using the correct version of marked
+                const htmlContent = marked.parse(data.contents); // Use 'marked.parse' instead of 'marked' function
+
+                // Set the content in the markdown-content div
+                document.getElementById('markdown-content').innerHTML = htmlContent;
+
+            } catch (error) {
+                document.getElementById('markdown-content').innerHTML = 'Error loading markdown content: ' + error.message;
+            }
         }
-    </script>
 
-    <!-- Highlight.js Script for Syntax Highlighting -->
-    <script src="https://cdn.jsdelivr.net/gh/MarketingPipeline/Markdown-Tag/markdown-tag.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-    <script>
-        // Highlight all code blocks when the page is loaded
-        document.addEventListener("DOMContentLoaded", function () {
-            hljs.highlightAll();
-        });
+        fetchMarkdown();
     </script>
-
 
 </body>
 </html>
+
+
+
+<!--https://raw.githubusercontent.com/red2center/appcenter/refs/heads/main/data/mdfiles/main.md-->
