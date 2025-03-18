@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhello_red=self.webpackChunkhello_red||[]).push([[8121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"deneme","permalink":"/blog/tags/deneme","count":1},{"label":"test","permalink":"/blog/tags/test","count":1}]}')}}]);

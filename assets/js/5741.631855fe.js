@@ -1,0 +1,1 @@
+(self.webpackChunkhello_red=self.webpackChunkhello_red||[]).push([[5741],{5741:()=>{}}]);

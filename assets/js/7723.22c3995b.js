@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhello_red=self.webpackChunkhello_red||[]).push([[7723],{7723:(e,l,r)=>{r.d(l,{createPieServices:()=>s.f});var s=r(8685);r(9369)}}]);

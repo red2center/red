@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhello_red=self.webpackChunkhello_red||[]).push([[7472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Deneme Yaz\u0131s\u0131","permalink":"/blog/deneme","unlisted":false,"date":"2025-03-18T00:00:00.000Z"}]}')}}]);

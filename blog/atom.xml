@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xsl" href="atom.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://fastlogin.pages.dev/blog</id>
+    <title>HelloRed Blog</title>
+    <updated>2025-03-18T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://fastlogin.pages.dev/blog"/>
+    <subtitle>HelloRed Blog</subtitle>
+    <icon>https://fastlogin.pages.dev/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Deneme Yazısı]]></title>
+        <id>https://fastlogin.pages.dev/blog/deneme</id>
+        <link href="https://fastlogin.pages.dev/blog/deneme"/>
+        <updated>2025-03-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Bu bir deneme blog yazısıdır.]]></summary>
+        <content type="html"><![CDATA[<p>Merhabalar bu ilk blog yazısı site hala geliştiriliyor.</p>]]></content>
+        <category label="deneme" term="deneme"/>
+        <category label="test" term="test"/>
+    </entry>
+</feed>

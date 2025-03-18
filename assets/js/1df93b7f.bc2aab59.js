@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkhello_red=self.webpackChunkhello_red||[]).push([[4583],{623:(e,r,l)=>{l.r(r),l.d(r,{default:()=>d});l(6289);var s=l(797),o=(l(9303),l(6347));var t=l(4848);function d(){const{siteConfig:e}=(0,s.A)();return(0,t.jsx)(o.rd,{to:"/docs/hellored"})}}}]);
